@@ -12,7 +12,7 @@ public class TasksProcessing {
     @GeneratedValue
     private Long id;
 
-    private Integer taskid;
+    private Long taskid;
 
     private String taskname;
 
@@ -20,7 +20,7 @@ public class TasksProcessing {
 
     private String name;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date deadline;
 
     private Timestamp lasttimeprocessing;
@@ -45,11 +45,11 @@ public class TasksProcessing {
         this.id = id;
     }
 
-    public Integer getTaskid() {
+    public Long getTaskid() {
         return taskid;
     }
 
-    public void setTaskid(Integer taskid) {
+    public void setTaskid(Long taskid) {
         this.taskid = taskid;
     }
 

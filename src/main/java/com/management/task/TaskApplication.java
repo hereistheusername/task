@@ -63,7 +63,7 @@ public class TaskApplication {
         realm.setUserDefinitions("joe.coder=password,user\n" +
                 "jill.coder=password,admin");
 
-        realm.setRoleDefinitions("admin=TaskInfo:read,write\n" +
+        realm.setRoleDefinitions("admin=taskInfoWrite,taskInfoRead\n" +
                 "user=read");
         realm.setCachingEnabled(true);
         return realm;
@@ -74,14 +74,14 @@ public class TaskApplication {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
 //        chainDefinition.addPathDefinition("/login.html", "authc"); // need to accept POSTs from the login form
 //        chainDefinition.addPathDefinition("/logout", "logout");
-        chainDefinition.addPathDefinition("/TaskInfo/underGoingTasks", "authc,perms[TaskInfo:read]");
-        chainDefinition.addPathDefinition("/TaskInfo/add", "authc, perms[TaskInfo:write]");
-        chainDefinition.addPathDefinition("/TasksProcessing/getMyTasks", "authc, perms[TasksProcessing:read]");
-        chainDefinition.addPathDefinition("/TasksProcessing/getMyTasks", "authc,perms[TasksProcessing:read]");
-        chainDefinition.addPathDefinition("/TasksProcessing/setState", "authc, perms[TasksProcessing:write]");
-        chainDefinition.addPathDefinition("/TasksProcessing/outOfDateTasks", "authc, perms[TasksProcessing:read]");
-        chainDefinition.addPathDefinition("/TasksProcessing/uploadAppendix", "authc, perms[TasksProcessing:read]");
-        chainDefinition.addPathDefinition("/TasksProcessing/getAppendix", "authc, perms[TasksProcessing:read]");
+        chainDefinition.addPathDefinition("/TaskInfo/underGoingTasks", "authc,perms[taskInfoRead]");
+        chainDefinition.addPathDefinition("/TaskInfo/add", "authc, perms[taskInfoWrite]");
+        chainDefinition.addPathDefinition("/TasksProcessing/getMyTasks", "authc");
+        chainDefinition.addPathDefinition("/TasksProcessing/getMyTasks", "authc");
+        chainDefinition.addPathDefinition("/TasksProcessing/setState", "authc");
+        chainDefinition.addPathDefinition("/TasksProcessing/outOfDateTasks", "authc");
+        chainDefinition.addPathDefinition("/TasksProcessing/uploadAppendix", "authc");
+        chainDefinition.addPathDefinition("/TasksProcessing/getAppendix", "authc");
 
         return chainDefinition;
     }

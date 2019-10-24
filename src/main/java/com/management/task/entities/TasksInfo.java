@@ -24,7 +24,7 @@ public class TasksInfo {
     @Temporal(TemporalType.TIMESTAMP)
     private Date taskdatetime;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date deadline;
 
     private Boolean ismustdo;
